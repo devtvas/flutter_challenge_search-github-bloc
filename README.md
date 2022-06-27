@@ -22,11 +22,15 @@
     
 <h2>Detalhe do desafio</h2>
 
-* Utilizar o seu github pessoal para publicar o desafio. Confirme que a visibilidade do projeto é pública (não esqueça de colocar no readme a referência a este challenge); 
-* Leia atentamente todo o descritivo desse documento antes de qualquer coisa; 
-* O projeto deverá ser desenvolvido em Flutter/Dart; 
-* Os produtos disponíveis no projeto da aplicação devem ser recuperados através do Firebase Realtime DB ou Firestore; 
-* Utilize sempre boas práticas nas implementações. OOP, SOLID, DDD, Clean Code, Injeção de Dependência são sempre bem-vindos e fazem toda diferença!!!
+* Precisamos listar para os administradores do sistema os 31 bancos que trabalhamos em uma tela com uma listagem ordenada alfabeticamente. 
+* Seria desejável que o administrador conseguisse inverter a ordem da lista e pesquisar por um banco em específico. 
+* Também seria interessante se o administrador fosse capaz de selecionar o banco navegando para outra tela onde seria exibido o nome completo desse banco e eventualmente mais detalhes.
+
+<h2>Requisitos de ambiente:</h2>
+
+* Projeto já configurado para executar uma aplicação em Flutter Web.
+* Configuração com a dependência de sua preferência para inversão de controle e inversão de dependência.
+* Configuração com a dependência de sua preferência para gerenciamento de estado.
 
 ###  Base de Dados
 
