@@ -1,37 +1,97 @@
 {
-
-"listBank": [
-    "Banco do Brasil S.A.",
-    "CAIXA ECONOMICA FEDERAL",
-    "Banco Inter S.A.",
-    "BANCO COOPERATIVO SICREDI S.A.",
-    "BANCO COOPERATIVO SICOOB S.A. - BANCO SICOOB",
-    "COOPERATIVA DE ECONOMIA E CREDITO MUTUO DOS TRABALHADORES PORTUARIOS DA GRANDE V",
-    "PORTOSEG S.A. - CREDITO",
-    "J&F DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA",
-    "PAGSEGURO INTERNET INSTITUIÇÃO DE PAGAMENTO S.A.",
-    "MERCADO PAGO INSTITUIÇÃO DE PAGAMENTO LTDA.",
-    "Banco Agibank S.A.",
-    "GAZINCRED S.A. SOCIEDADE DE CRÉDITO",
-    "NU PAGAMENTOS S.A. - INSTITUIÇÃO DE PAGAMENTO",
-    "CDC SOCIEDADE DE CRÉDITO AO MICROEMPREENDEDOR E À EMPRESADE PEQUENO PORTE LTDA.",
-    "PICPAY INSTITUIçãO DE PAGAMENTO S.A.",
-    "WILL FINANCEIRA S.A. CRÉDITO",
-    "Banco Digio S.A.",
-    "Banco C6 S.A.",
-    "Banco Caixa Geral - Brasil S.A.",
-    "J17 - SOCIEDADE DE CRÉDITO DIRETO S/A",
-    "UNAVANTI SOCIEDADE DE CRÉDITO DIRETO S/A",
-    "Banco Safra S.A.",
-    "Banco Pan S.A.",
-    "Banco Votorantim S.A.",
-    "ITAÚ UNIBANCO S.A.",
-    "Banco Bradesco S.A.",
-    "Banco BMG S.A.",
-    "Banco BS2 S.A.",
-    "BANCO SANTANDER (BRASIL) S.A.",
-    "BANCO DIGIMAIS S.A.",
-    "Banco Original S.A."
+  "banklist": [
+    {
+      "name": "Banco do Brasil S.A."
+    },
+    {
+      "name": "CAIXA ECONOMICA FEDERAL"
+    },
+    {
+      "name": "Banco Inter S.A."
+    },
+    {
+      "name": "BANCO COOPERATIVO SICREDI S.A."
+    },
+    {
+      "name": "BANCO COOPERATIVO SICOOB S.A. - BANCO SICOOB"
+    },
+    {
+      "name": "COOPERATIVA DE ECONOMIA E CREDITO MUTUO DOS TRABALHADORES PORTUARIOS DA GRANDE V"
+    },
+    {
+      "name": "PORTOSEG S.A. - CREDITO"
+    },
+    {
+      "name": "J&F DISTRIBUIDORA DE TÍTULOS E VALORES MOBILIÁRIOS LTDA"
+    },
+    {
+      "name": "PAGSEGURO INTERNET INSTITUIÇÃO DE PAGAMENTO S.A."
+    },
+    {
+      "name": "MERCADO PAGO INSTITUIÇÃO DE PAGAMENTO LTDA."
+    },
+    {
+      "name": "Banco Agibank S.A."
+    },
+    {
+      "name": "GAZINCRED S.A. SOCIEDADE DE CRÉDITO"
+    },
+    {
+      "name": "NU PAGAMENTOS S.A. - INSTITUIÇÃO DE PAGAMENTO"
+    },
+    {
+      "name": "CDC SOCIEDADE DE CRÉDITO AO MICROEMPREENDEDOR E À EMPRESADE PEQUENO PORTE LTDA."
+    },
+    {
+      "name": "PICPAY INSTITUIçãO DE PAGAMENTO S.A."
+    },
+    {
+      "name": "WILL FINANCEIRA S.A. CRÉDITO"
+    },
+    {
+      "name": "Banco Digio S.A."
+    },
+    {
+      "name": "Banco C6 S.A."
+    },
+    {
+      "name": "Banco Caixa Geral - Brasil S.A."
+    },
+    {
+      "name": "J17 - SOCIEDADE DE CRÉDITO DIRETO S/A"
+    },
+    {
+      "name": "UNAVANTI SOCIEDADE DE CRÉDITO DIRETO S/A"
+    },
+    {
+      "name": "Banco Safra S.A."
+    },
+    {
+      "name": "Banco Pan S.A."
+    },
+    {
+      "name": "Banco Votorantim S.A."
+    },
+    {
+      "name": "ITAÚ UNIBANCO S.A."
+    },
+    {
+      "name": "Banco Bradesco S.A."
+    },
+    {
+      "name": "Banco BMG S.A."
+    },
+    {
+      "name": "Banco BS2 S.A."
+    },
+    {
+      "name": "BANCO SANTANDER (BRASIL) S.A."
+    },
+    {
+      "name": "BANCO DIGIMAIS S.A."
+    },
+    {
+      "name": "Banco Original S.A."
+    }
   ]
-
 }

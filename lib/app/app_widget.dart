@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test/app/views/list_banks_views.dart';
+import 'package:test/app/views/banks/list_banks_view.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -9,11 +9,11 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'List Banks',
+      title: 'Bank List',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ListBanksViews(),
+      home: ListBankView(),
     );
   }
 }

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class DetailsBanksViews extends StatelessWidget {
   String? title;
@@ -9,7 +7,8 @@ class DetailsBanksViews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("$title")),
+      appBar: AppBar(
+          backgroundColor: const Color(0xffFFE08E), title: Text("$title")),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
