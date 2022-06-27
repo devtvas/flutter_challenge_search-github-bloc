@@ -154,7 +154,7 @@ class _ListBankViewState extends State<ListBankView> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 0.3,
+      height: height * 1,
       child: ListView.builder(
         itemCount: bankModel!.listBank.length,
         itemBuilder: (context, index) {
