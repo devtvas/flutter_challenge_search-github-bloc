@@ -6,8 +6,8 @@
 
 ## Historia do projeto (branchs)
 
-- [MAIN](https://github.com/devtvas/flutter_challenge_credifit2/tree/main) - 27/06/22 - (voce esta aqui!)
-- [ET2-01](https://github.com/devtvas/flutter_challenge_credifit2/tree/ET2-01) - 27/06/22 
+- [MAIN](https://github.com/devtvas/flutter_challenge_credifit2/tree/main) - 27/06/22 
+- [ET2-01](https://github.com/devtvas/flutter_challenge_credifit2/tree/ET2-01) - 27/06/22 - (voce esta aqui!)
 - [ET2-02](https://github.com/devtvas/flutter_challenge_credifit2/tree/ET2-02) - 13/06/22
 
 <h2>Como rodar o projeto</h2>
