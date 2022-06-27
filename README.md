@@ -1,4 +1,4 @@
-<h1>Resolucao do desafio técnico para o processo seletivo da empresa Credifit (FASE 2).</h1>
+<h1>(FASE 2) Resolucao do desafio técnico para o processo seletivo da empresa Credifit.</h1>
 
 ### Screenshots v2
 
