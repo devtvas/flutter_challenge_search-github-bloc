@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test/app/views/banks/list_banks_view.dart';
+import 'package:test/app/views/splash/splash_view.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ListBankView(),
+      home: SplashView(),
     );
   }
 }
