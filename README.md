@@ -32,10 +32,6 @@
 * Configuração com a dependência de sua preferência para inversão de controle e inversão de dependência.
 * Configuração com a dependência de sua preferência para gerenciamento de estado.
 
-###  Base de Dados
-
- 
-* Utilizar o Firestore ou Firebase Realtime DB
 
 <h2>Detalhes de Configuracao</h2>
   
