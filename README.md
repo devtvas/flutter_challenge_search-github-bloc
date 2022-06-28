@@ -1,8 +1,8 @@
 <h1>(FASE 2) Resolucao do desafio técnico para o processo seletivo da empresa Credifit.</h1>
 
-### Screenshots v2
+### Screenshots v3
 
-<img src="assets/images/versao2.png" height="500em" /> 
+<img src="assets/images/versao3.png" height="500em" /> 
 
 ## Historia do projeto (branchs)
 
@@ -43,8 +43,8 @@
   + Dependencias Utilizadas:  
     - google_fonts: 
     - splash_screen_view:
-    - bloc:
-    - flutter_bloc: 
+    - bloc: (new)
+    - flutter_bloc: (new) 
 
 
 ## Suporte
