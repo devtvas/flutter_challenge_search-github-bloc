@@ -6,6 +6,7 @@ import 'package:test/app/bloc/bank_state.dart';
 import 'package:test/app/models/bank_model.dart';
 import 'package:test/app/repositories/banks_repository.dart';
 
+//aula references: https://www.youtube.com/watch?v=UukgrBIf3Cc
 class BankBloc extends Bloc<BankEvent, BankState> {
   final _bankRepo = BankRepository();
 
