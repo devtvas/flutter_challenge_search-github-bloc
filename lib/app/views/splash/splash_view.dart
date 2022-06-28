@@ -9,14 +9,6 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // return SplashScreenView(
-    //   navigateRoute: ListBankView(),
-    //   duration: 3000,
-    //   imageSize: 130,
-    //   imageSrc: "logoImageSplash.png",
-    //   backgroundColor: Colors.white,
-    // );
-
     return SplashScreenView(
       navigateRoute: ListBankView(),
       duration: 3000,
@@ -24,7 +16,7 @@ class SplashView extends StatelessWidget {
       imageSrc: imageLogoSplash,
       text: "Etapa 2",
       textType: TextType.TyperAnimatedText,
-      textStyle: TextStyle(
+      textStyle: const TextStyle(
         fontSize: 30.0,
       ),
       backgroundColor: Colors.white,

@@ -4,6 +4,7 @@ import 'package:test/app/models/bank_model.dart';
 import 'package:test/app/views/banks/details_banks_view.dart';
 
 //layot references:https://github.com/akmak1103/E-Commerce-UI-Flutter
+//search references:https://www.kindacode.com/article/how-to-create-a-filter-search-listview-in-flutter/
 class ListBankView extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
   ListBankView({Key? key}) : super(key: key);
@@ -13,21 +14,30 @@ class ListBankView extends StatefulWidget {
 }
 
 class _ListBankViewState extends State<ListBankView> {
-  BankModel? bankModel = BankModel();
-  // List<BankModel> bankModel = [
-  //   BankModel(id: "01", name: "Brasil"),
-  //   BankModel(id: "01", name: "Brasil"),
-  //   BankModel(id: "01", name: "Brasil"),
-  //   BankModel(id: "01", name: "Brasil"),
-  //   BankModel(id: "01", name: "Brasil"),
-  // ];
-  bool? orderList = true;
+  late bool orderList = true;
+  late List<BankModel> _foundBanks = [];
+  final List<BankModel> _allBanks = [
+    BankModel(id: "1", name: "Brasil"),
+    BankModel(id: "2", name: "Caixa"),
+    BankModel(id: "3", name: "NuBank"),
+    BankModel(id: "4", name: "Itau"),
+    BankModel(id: "5", name: "C6"),
+    BankModel(id: "6", name: "Parana"),
+    BankModel(id: "7", name: "Bahia"),
+    BankModel(id: "8", name: "Santander"),
+    BankModel(id: "9", name: "Carrefour"),
+    BankModel(id: "10", name: "PagSeguro"),
+  ];
 
   @override
   void initState() {
     super.initState();
-
-    bankModel!.listBank.sort((a, b) => a.compareTo(b));
+    _foundBanks = _allBanks;
+    _foundBanks.sort(
+      (a, b) {
+        return a.name!.toLowerCase().compareTo(b.name!.toLowerCase());
+      },
+    );
   }
 
   @override
@@ -104,8 +114,7 @@ class _ListBankViewState extends State<ListBankView> {
   Widget buildSearch() {
     var ctlSearch = TextEditingController();
     return TextField(
-      controller: ctlSearch,
-      onChanged: null,
+      onChanged: (value) => _runFilter(value),
       decoration: InputDecoration(
         hintText: 'Search Bank',
         hintStyle: GoogleFonts.montserrat(color: Colors.black38),
@@ -136,7 +145,8 @@ class _ListBankViewState extends State<ListBankView> {
             ),
           ),
           TextButton(
-            onPressed: () => switchOrder(),
+            // onPressed: () => {},
+            onPressed: () => _changeOrder(),
             child: Text(
               'Change Order',
               style: GoogleFonts.montserrat(
@@ -154,87 +164,99 @@ class _ListBankViewState extends State<ListBankView> {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return SizedBox(
-      height: height * 1,
-      child: ListView.builder(
-        itemCount: bankModel!.listBank.length,
-        itemBuilder: (context, index) {
-          return Stack(
-            children: <Widget>[
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return DetailsBanksViews(title: bankModel!.listBank[index]);
-                  }));
-                },
-                child: Card(
-                  color: const Color(0xffFFE08E),
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(24, 18, 0, 0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              bankModel!.listBank[index],
-                              style: GoogleFonts.montserrat(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 22,
+      height: height * 0.5,
+      child: _foundBanks.isNotEmpty
+          ? ListView.builder(
+              itemCount: _foundBanks.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return DetailsBanksViews(title: _foundBanks[index].name);
+                    }));
+                  },
+                  child: Card(
+                    color: const Color(0xffFFE08E),
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(24, 18, 0, 0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                "${_foundBanks[index].name}",
+                                style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 22,
+                                ),
                               ),
-                            ),
-                            Text(
-                              'cod. id',
-                              style: GoogleFonts.montserrat(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
+                              Text(
+                                '${_foundBanks[index].id}',
+                                style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
+                );
+              },
+            )
+          : const Center(
+              child: Text(
+                'No results found',
+                style: TextStyle(fontSize: 24),
               ),
-            ],
-          );
-        },
-      ),
+            ),
     );
   }
 
-  switchOrder() {
+  _changeOrder() {
     if (orderList == true) {
       setState(() {
-        orderList = !orderList!;
-        bankModel!.listBank.sort((a, b) => b.compareTo(a));
+        orderList = !orderList;
+        _foundBanks.sort(
+          (a, b) {
+            return b.name!.toLowerCase().compareTo(a.name!.toLowerCase());
+          },
+        );
       });
     } else {
       setState(() {
-        orderList = !orderList!;
-        bankModel!.listBank.sort((a, b) => a.compareTo(b));
+        orderList = !orderList;
+        _foundBanks.sort(
+          (a, b) {
+            return a.name!.toLowerCase().compareTo(b.name!.toLowerCase());
+          },
+        );
       });
     }
   }
 
-  // onSearch(String text) async {
-  //   bankModel!.listBank.clear();
-  //   if (text.isEmpty) {
-  //     setState(() {});
-  //     return;
-  //   }
+  _runFilter(String text) async {
+    List<BankModel> results = [];
+    if (text.isEmpty) {
+      results = _allBanks;
+    } else {
+      results = _allBanks
+          .where((bank) =>
+              bank.name.toString().toLowerCase().contains(text.toLowerCase()))
+          .toList();
+    }
 
-  //   bankModel!.listBank.forEach((userDetail) {
-  //     if (bankModel!.listBank.firstName.contains(text) ||
-  //         bankModel!.listBank.lastName.contains(text))
-  //       _searchResult.add(userDetail);
-  //   });
-
-  //   setState(() {});
-  // }
+    // Refresh the UI
+    setState(() {
+      _foundBanks = results;
+    });
+  }
 }
