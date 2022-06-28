@@ -1,43 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test/app/bloc/bank_bloc.dart';
+import 'package:test/app/bloc/bank_events.dart';
+import 'package:test/app/bloc/bank_state.dart';
 import 'package:test/app/models/bank_model.dart';
 import 'package:test/app/views/banks/details_banks_view.dart';
 
 //layot references:https://github.com/akmak1103/E-Commerce-UI-Flutter
 //search references:https://www.kindacode.com/article/how-to-create-a-filter-search-listview-in-flutter/
-class ListBankView extends StatefulWidget {
+class BanksView extends StatefulWidget {
   // ignore: prefer_const_constructors_in_immutables
-  ListBankView({Key? key}) : super(key: key);
+  BanksView({Key? key}) : super(key: key);
 
   @override
-  State<ListBankView> createState() => _ListBankViewState();
+  State<BanksView> createState() => _BanksViewState();
 }
 
-class _ListBankViewState extends State<ListBankView> {
+class _BanksViewState extends State<BanksView> {
   late bool orderList = true;
   late List<BankModel> _foundBanks = [];
-  final List<BankModel> _allBanks = [
-    BankModel(id: "1", name: "Brasil"),
-    BankModel(id: "2", name: "Caixa"),
-    BankModel(id: "3", name: "NuBank"),
-    BankModel(id: "4", name: "Itau"),
-    BankModel(id: "5", name: "C6"),
-    BankModel(id: "6", name: "Parana"),
-    BankModel(id: "7", name: "Bahia"),
-    BankModel(id: "8", name: "Santander"),
-    BankModel(id: "9", name: "Carrefour"),
-    BankModel(id: "10", name: "PagSeguro"),
-  ];
-
+  // final List<BankModel> _allBanks = [
+  //   BankModel(id: "1", name: "Brasil"),
+  //   BankModel(id: "2", name: "Caixa"),
+  //   BankModel(id: "3", name: "NuBank"),
+  //   BankModel(id: "4", name: "Itau"),
+  //   BankModel(id: "5", name: "C6"),
+  //   BankModel(id: "6", name: "Parana"),
+  //   BankModel(id: "7", name: "Bahia"),
+  //   BankModel(id: "8", name: "Santander"),
+  //   BankModel(id: "9", name: "Carrefour"),
+  //   BankModel(id: "10", name: "PagSeguro"),
+  // ];
+  late final BankBloc bloc;
   @override
   void initState() {
     super.initState();
-    _foundBanks = _allBanks;
-    _foundBanks.sort(
-      (a, b) {
-        return a.name!.toLowerCase().compareTo(b.name!.toLowerCase());
-      },
-    );
+    bloc = BankBloc();
+    bloc.inputBank.add(LoadBankEvent());
+    // _foundBanks = bloc.;
+    // _foundBanks.sort(
+    //   (a, b) {
+    //     return a.name!.toLowerCase().compareTo(b.name!.toLowerCase());
+    //   },
+    // );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    bloc.inputBank.close();
   }
 
   @override
@@ -114,7 +126,8 @@ class _ListBankViewState extends State<ListBankView> {
   Widget buildSearch() {
     var ctlSearch = TextEditingController();
     return TextField(
-      onChanged: (value) => _runFilter(value),
+      // onChanged: (value) => bloc,
+      // onChanged: (value) => _runFilter(value),
       decoration: InputDecoration(
         hintText: 'Search Bank',
         hintStyle: GoogleFonts.montserrat(color: Colors.black38),
@@ -145,8 +158,8 @@ class _ListBankViewState extends State<ListBankView> {
             ),
           ),
           TextButton(
-            // onPressed: () => {},
-            onPressed: () => _changeOrder(),
+            onPressed: () => {},
+            // onPressed: () => _changeOrder(),
             child: Text(
               'Change Order',
               style: GoogleFonts.montserrat(
@@ -165,15 +178,18 @@ class _ListBankViewState extends State<ListBankView> {
     var height = MediaQuery.of(context).size.height;
     return SizedBox(
       height: height * 0.5,
-      child: _foundBanks.isNotEmpty
-          ? ListView.builder(
-              itemCount: _foundBanks.length,
+      child: StreamBuilder<BankState>(
+          stream: bloc.stream,
+          builder: (context, snapshot) {
+            final bankList = snapshot.data?.banks ?? [];
+            return ListView.builder(
+              itemCount: bankList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                   onTap: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (BuildContext context) {
-                      return DetailsBanksViews(title: _foundBanks[index].name);
+                      return DetailsBanksViews(title: bankList[index].name);
                     }));
                   },
                   child: Card(
@@ -190,14 +206,14 @@ class _ListBankViewState extends State<ListBankView> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                "${_foundBanks[index].name}",
+                                "${bankList[index].name}",
                                 style: GoogleFonts.montserrat(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 22,
                                 ),
                               ),
                               Text(
-                                '${_foundBanks[index].id}',
+                                '${bankList[index].id}',
                                 style: GoogleFonts.montserrat(
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14,
@@ -211,13 +227,14 @@ class _ListBankViewState extends State<ListBankView> {
                   ),
                 );
               },
-            )
-          : const Center(
-              child: Text(
-                'No results found',
-                style: TextStyle(fontSize: 24),
-              ),
-            ),
+            );
+          }),
+      // : const Center(
+      //     child: Text(
+      //       'No results found',
+      //       style: TextStyle(fontSize: 24),
+      //     ),
+      //   ),
     );
   }
 
@@ -246,12 +263,13 @@ class _ListBankViewState extends State<ListBankView> {
   _runFilter(String text) async {
     List<BankModel> results = [];
     if (text.isEmpty) {
-      results = _allBanks;
+      results = [];
     } else {
-      results = _allBanks
-          .where((bank) =>
-              bank.name.toString().toLowerCase().contains(text.toLowerCase()))
-          .toList();
+      // results =   bloc. where((item)=>item.contains(keyword)).toList();
+      // results = _foundBanks
+      //     .where((bank) =>
+      //         bank.name.toString().toLowerCase().contains(text.toLowerCase()))
+      //     .toList();
     }
 
     // Refresh the UI

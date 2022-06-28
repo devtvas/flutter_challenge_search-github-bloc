@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test/app/views/banks/list_banks_view.dart';
+import 'package:test/app/views/banks/banks_view.dart';
 import 'package:test/app/views/splash/splash_view.dart';
 
 class AppWidget extends StatelessWidget {
