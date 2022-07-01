@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:test/app/bloc/bank_bloc.dart';
 import 'package:test/app/bloc/bank_events.dart';
 import 'package:test/app/bloc/bank_state.dart';
-import 'package:test/app/pages/banks/details.dart';
 import 'package:test/app/models/bank_model.dart';
 
-class BankPage extends StatelessWidget {
-  BankPage({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  HomePage({Key? key}) : super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
@@ -206,7 +204,7 @@ class BankBody extends StatelessWidget {
 class BankResults extends StatelessWidget {
   const BankResults({Key? key, this.items}) : super(key: key);
 
-  final List<BankModel>? items;
+  final List<GitHub>? items;
 
   @override
   Widget build(BuildContext context) {
@@ -225,7 +223,7 @@ class BankResults extends StatelessWidget {
 class BankResultItem extends StatelessWidget {
   const BankResultItem({Key? key, required this.item}) : super(key: key);
 
-  final BankModel item;
+  final GitHub item;
   @override
   Widget build(BuildContext context) {
     return Padding(

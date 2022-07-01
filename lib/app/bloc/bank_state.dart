@@ -16,7 +16,7 @@ class BankStateLoading extends BankState {}
 class BankStateSuccess extends BankState {
   const BankStateSuccess(this.items);
 
-  final List<BankModel> items;
+  final List<GitHub> items;
 
   @override
   List<Object> get props => [items];

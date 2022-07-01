@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test/app/bloc/bank_bloc.dart';
-import 'package:test/app/pages/banks/bank.dart';
 import 'package:test/app/pages/splash/splash.dart';
 import 'package:test/app/repositories/banks_repository.dart';
 
@@ -13,14 +12,14 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Bank List',
+      title: 'GitHub Search',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       // home: SplashView(),
       home: BlocProvider(
         create: (_) => BankBloc(bankRepository: bankRepository),
-        child: BankPage(),
+        child: SplashPage(),
         // child: const SplashPage(),
       ),
     );

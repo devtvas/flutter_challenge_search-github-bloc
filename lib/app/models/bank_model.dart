@@ -1,7 +1,7 @@
 import 'package:test/app/models/user_github_model.dart';
 
-class BankModel {
-  const BankModel({
+class GitHub {
+  const GitHub({
     required this.fullName,
     required this.htmlUrl,
     required this.owner,
@@ -11,8 +11,8 @@ class BankModel {
   final String htmlUrl;
   final GithubUser owner;
 
-  static BankModel fromJson(dynamic json) {
-    return BankModel(
+  static GitHub fromJson(dynamic json) {
+    return GitHub(
       fullName: json['full_name'] as String,
       htmlUrl: json['html_url'] as String,
       owner: GithubUser.fromJson(json['owner']),

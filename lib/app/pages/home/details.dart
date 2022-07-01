@@ -3,7 +3,7 @@ import 'package:test/app/models/bank_model.dart';
 
 class DetailsPage extends StatefulWidget {
   DetailsPage({Key? key, this.item}) : super(key: key);
-  final BankModel? item;
+  final GitHub? item;
   @override
   State<DetailsPage> createState() => _DetailsPageState();
 }
