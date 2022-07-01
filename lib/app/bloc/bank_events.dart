@@ -1,21 +1,17 @@
-import 'package:test/app/models/bank_model.dart';
+import 'package:equatable/equatable.dart';
 
-abstract class BankEvent {}
-
-class LoadBankEvent extends BankEvent {}
-
-class AddBankEvent extends BankEvent {
-  BankModel bankModel;
-
-  AddBankEvent({
-    required this.bankModel,
-  });
+abstract class BankEvent extends Equatable {
+  const BankEvent();
 }
 
-class RemoveBankEvent extends BankEvent {
-  BankModel bankModel;
+class TextChanged extends BankEvent {
+  const TextChanged({required this.text});
 
-  RemoveBankEvent({
-    required this.bankModel,
-  });
+  final String text;
+
+  @override
+  List<Object> get props => [text];
+
+  @override
+  String toString() => 'TextChanged { text: $text }';
 }

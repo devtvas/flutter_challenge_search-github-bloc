@@ -1,31 +1,22 @@
-import 'package:test/app/models/bank_model.dart';
+import 'dart:async';
+
+import 'package:test/app/api/bank_api.dart';
+import 'package:test/app/models/search_result.dart';
+import 'package:test/app/cache/bank_cache.dart';
 
 class BankRepository {
-  final List<BankModel> _banks = [];
+  const BankRepository(this.cache, this.client);
 
-  List<BankModel> loadBanks() {
-    _banks.addAll([
-      BankModel(id: "1", name: "Brasil"),
-      BankModel(id: "2", name: "Caixa"),
-      BankModel(id: "3", name: "NuBank"),
-      BankModel(id: "4", name: "Itau"),
-      BankModel(id: "5", name: "C6"),
-      BankModel(id: "6", name: "Parana"),
-      BankModel(id: "7", name: "Bahia"),
-      BankModel(id: "8", name: "Santander"),
-      BankModel(id: "9", name: "Carrefour"),
-      BankModel(id: "10", name: "PagSeguro"),
-    ]);
-    return _banks;
-  }
+  final BankCache cache;
+  final BankAPI client;
 
-  List<BankModel> addBank(BankModel bankModel) {
-    _banks.add(bankModel);
-    return _banks;
-  }
-
-  List<BankModel> removeBank(BankModel bankModel) {
-    _banks.remove(bankModel);
-    return _banks;
+  Future<SearchResult> search(String term) async {
+    final cachedResult = cache.get(term);
+    if (cachedResult != null) {
+      return cachedResult;
+    }
+    final result = await client.search(term);
+    cache.set(term, result);
+    return result;
   }
 }

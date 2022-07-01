@@ -38,10 +38,16 @@ dependencies:
   splash_screen_view:
   bloc:
   flutter_bloc: 
+  equatable:
+  stream_transform:
+  http:
+  built_value:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: 
+  mobx_codegen:
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

@@ -48,7 +48,10 @@
 
 <h2>Referencia bibliografica</h2>
 
+  + [LAYOUT](https://github.com/akmak1103/E-Commerce-UI-Flutter)
+  + [SEARCH](https://www.kindacode.com/article/how-to-create-a-filter-search-listview-in-flutter/)
   + [BLOC](https://www.youtube.com/watch?v=UB28e59GmK8)
+  + [BLOC-LIBRARY](https://bloclibrary.dev/#/flutterangulargithubsearch?id=search-bar)
 
 ## Suporte
 

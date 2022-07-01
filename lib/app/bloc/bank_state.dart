@@ -1,22 +1,35 @@
+import 'package:equatable/equatable.dart';
+
 import 'package:test/app/models/bank_model.dart';
 
-abstract class BankState {
-  List<BankModel> banks;
+abstract class BankState extends Equatable {
+  const BankState();
 
-  BankState({
-    required this.banks,
-  });
+  @override
+  List<Object> get props => [];
 }
 
-class BankInitialState extends BankState {
-  BankInitialState() : super(banks: []);
+class BankStateEmpty extends BankState {}
+
+class BankStateLoading extends BankState {}
+
+class BankStateSuccess extends BankState {
+  const BankStateSuccess(this.items);
+
+  final List<BankModel> items;
+
+  @override
+  List<Object> get props => [items];
+
+  @override
+  String toString() => 'BankStateSuccess { items: ${items.length} }';
 }
 
-class BankSuccessState extends BankState {
-  BankSuccessState({required List<BankModel> banks}) : super(banks: banks);
-}
+class BankStateError extends BankState {
+  const BankStateError(this.error);
 
-//TODO
-class BankErrorState extends BankState {
-  BankErrorState({required List<BankModel> banks}) : super(banks: banks);
+  final String error;
+
+  @override
+  List<Object> get props => [error];
 }

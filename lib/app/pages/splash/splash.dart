@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
-import 'package:test/app/views/banks/banks_view.dart';
+import 'package:test/app/pages/banks/bank.dart';
 
 import '../../util/images.dart';
 
-class SplashView extends StatelessWidget {
-  const SplashView({Key? key}) : super(key: key);
+class SplashPage extends StatelessWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SplashScreenView(
-      navigateRoute: BanksView(),
+      navigateRoute: BankPage(),
       duration: 3000,
       imageSize: 130,
       imageSrc: imageLogoSplash,
