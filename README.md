@@ -2,6 +2,7 @@
 
 ### Screenshots v1
 
+<img src="assets/images/splash.png" height="500em" /> 
 <img src="assets/images/versao1.png" height="500em" /> 
 
 ## Historia do projeto (branchs)

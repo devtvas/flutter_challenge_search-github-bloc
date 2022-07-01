@@ -4,6 +4,7 @@ import 'package:test/app/bloc/bank_bloc.dart';
 import 'package:test/app/bloc/bank_events.dart';
 import 'package:test/app/bloc/bank_state.dart';
 import 'package:test/app/models/bank_model.dart';
+import 'package:test/app/util/constants.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
@@ -89,12 +90,12 @@ class _BankBarState extends State<BankBar> {
       child: Stack(
         children: <Widget>[
           Container(
-            color: Colors.green,
+            color: Custom.colorDefault,
             width: MediaQuery.of(context).size.width,
             height: 100.0,
-            child: const Center(
+            child: Center(
               child: Text(
-                "Credifit - Fase 2",
+                Custom.titleApp,
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
             ),
@@ -116,7 +117,7 @@ class _BankBarState extends State<BankBar> {
                     IconButton(
                       icon: Icon(
                         Icons.menu,
-                        color: Colors.green,
+                        color: Custom.colorDefault,
                       ),
                       onPressed: () {
                         print("your menu action here");
@@ -133,14 +134,14 @@ class _BankBarState extends State<BankBar> {
                           );
                         },
                         decoration: const InputDecoration(
-                          hintText: 'Enter a search bank',
+                          hintText: 'Enter a search',
                         ),
                       ),
                     ),
                     IconButton(
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.close,
-                        color: Colors.green,
+                        color: Custom.colorDefault,
                       ),
                       onPressed: _onClearTapped,
                     ),

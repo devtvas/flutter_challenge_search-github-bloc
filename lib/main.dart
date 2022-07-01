@@ -7,12 +7,7 @@ import 'package:flutter/widgets.dart' show WidgetsFlutterBinding;
 
 import 'app/app_widget.dart';
 
-// void main() {
-//   runApp(const AppWidget());
-// }
-
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   final BankRepository bankRepository = BankRepository(
     BankCache(),
     BankAPI(),
